@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>당근마켓 매물 검색기</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <span class="carrot-icon">🥕</span>
+      <h1>당근마켓 매물 알리미</h1>
+    </div>
+    <span class="version-tag">v1.0</span>
+  </header>
+
+  <main class="container">
+    <!-- 입력 폼 섹션 -->
+    <section class="form-section">
+      <div class="form-group">
+        <label for="keyword">
+          <span>검색할 제품명</span>
+          <span class="required">*</span>
+        </label>
+        <div class="input-wrapper">
+          <input type="text" id="keyword" placeholder="예: 나이키 로말리오4" autofocus>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <span>가격 범위</span>
+          <span class="unit-guide">(단위: 만원)</span>
+        </label>
+        <div class="price-range-wrapper">
+          <input type="number" id="minPrice" placeholder="최소 (예: 10)" min="0" step="1">
+          <span class="range-separator">~</span>
+          <input type="number" id="maxPrice" placeholder="최대 (예: 15)" min="0" step="1">
+          <span class="currency-label">만원</span>
+        </div>
+        <div class="quick-tags">
+          <button type="button" class="tag-btn" data-min="0" data-max="0">전체</button>
+          <button type="button" class="tag-btn" data-min="0" data-max="10">~10만</button>
+          <button type="button" class="tag-btn" data-min="10" data-max="15">10~15만</button>
+          <button type="button" class="tag-btn" data-min="15" data-max="20">15~20만</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="region">
+          <span>지역 (동 기준)</span>
+          <span class="opt-guide">(선택)</span>
+        </label>
+        <div class="input-wrapper">
+          <input type="text" id="region" placeholder="예: 용현동 (비워두면 전국 검색)">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sortBy">
+          <span>결과 정렬 방식</span>
+        </label>
+        <div class="select-wrapper">
+          <select id="sortBy">
+            <option value="latest">⏱️ 가장 최신순</option>
+            <option value="price_asc">💰 가장 저렴한 순 (낮은 가격순)</option>
+            <option value="price_desc">💎 높은 가격순</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 주기적 백그라운드 알림 설정 -->
+      <div class="alarm-box">
+        <div class="alarm-header">
+          <label class="switch-label">
+            <input type="checkbox" id="enableAlarm">
+            <span class="switch-slider"></span>
+            <span class="switch-text">새 매물 주기적 알림 받기</span>
+          </label>
+        </div>
+        <div id="alarmOptions" class="alarm-options hidden">
+          <span>확인 주기:</span>
+          <select id="alarmInterval">
+            <option value="5">5분마다</option>
+            <option value="15" selected>15분마다</option>
+            <option value="30">30분마다</option>
+            <option value="60">1시간마다</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button type="button" id="searchBtn" class="primary-btn">
+          <span>🔍 실시간 매물 검색</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 결과 리스트 섹션 -->
+    <section class="results-section">
+      <div class="results-header">
+        <div class="results-title">
+          <span>검색 결과</span>
+          <span id="resultsCountBadge" class="count-badge hidden">0건</span>
+        </div>
+        <div id="statusMsg" class="status-msg"></div>
+      </div>
+
+      <!-- 로딩 인디케이터 -->
+      <div id="loadingSpinner" class="spinner-wrapper hidden">
+        <div class="spinner"></div>
+        <p>당근마켓 매물을 검색하는 중입니다...</p>
+      </div>
+
+      <!-- 결과 목록 -->
+      <div id="itemList" class="item-list">
+        <div class="empty-state">
+          <span class="empty-icon">🥕</span>
+          <p>제품명과 조건을 입력하고<br><strong>'실시간 매물 검색'</strong>을 눌러보세요.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

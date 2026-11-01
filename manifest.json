@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "당근마켓 키워드/가격 알리미",
+  "version": "1.0.0",
+  "description": "당근마켓에서 원하는 키워드, 가격 범위, 지역을 필터링하여 최신순/최저가순으로 검색하고 알림을 받습니다.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "당근마켓 매물 검색기",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://www.daangn.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
