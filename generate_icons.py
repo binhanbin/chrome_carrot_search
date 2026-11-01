@@ -1,7 +1,7 @@
 import os
 from PIL import Image, ImageDraw, ImageFont
 
-icons_dir = "/Users/eo/.gemini/antigravity/scratch/daangn-extension/icons"
+icons_dir = "/Users/eo/.gemini/antigravity/scratch/chrome_carrot_search/icons"
 os.makedirs(icons_dir, exist_ok=True)
 
 for size in [16, 48, 128]:

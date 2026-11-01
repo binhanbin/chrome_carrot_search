@@ -7,7 +7,7 @@
 ## 📁 파일 구조
 
 ```
-daangn-extension/
+chrome_carrot_search/
 ├── manifest.json       # Manifest V3 확장 프로그램 설정
 ├── popup.html          # 확장 프로그램 팝업 UI 화면
 ├── popup.css           # 당근마켓 테마 스타일 시트
@@ -26,7 +26,7 @@ daangn-extension/
 3. 좌측 상단의 **`압축해제된 확장 프로그램을 로드합니다 (Load unpacked)`** 버튼을 클릭합니다.
 4. 아래 폴더 경로를 선택합니다:
    ```
-   /Users/eo/.gemini/antigravity/scratch/daangn-extension
+   /Users/eo/.gemini/antigravity/scratch/chrome_carrot_search
    ```
 5. 크롬 우측 상단 퍼즐 아이콘(확장 프로그램)에서 **🥕 당근마켓 키워드/가격 알리미**를 고정(Pin)합니다.
 
